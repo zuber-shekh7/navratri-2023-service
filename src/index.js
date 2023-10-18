@@ -11,10 +11,9 @@ const __dirname = dirname(__filename);
 // Load environment variables from the .env file in the 'src' folder
 dotenv.config({ path: join(__dirname,  '../.env') });
 
-connect()
-
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  connect()
 });

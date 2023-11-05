@@ -7,6 +7,12 @@ const UserSchema = new mongoose.Schema(
     mobile: { type: String, required: true, unique: true, trim: true },
     isMobileVerified: { type: Boolean, default: false, required: false },
     isActive: { type: Boolean, default: false, required: false },
+    mobileOTP: {
+      type: String,
+    },
+    mobileOTPExpiry: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );

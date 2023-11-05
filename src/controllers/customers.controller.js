@@ -18,18 +18,18 @@ export const sendOtp = expressAsyncHandler(async (req, res) => {
 
 export const verifyOtp = expressAsyncHandler(async (req, res) => {
   const { mobileNumber, otp } = req.body;
-  const { success, user, token } = await verifyOTP(mobileNumber, otp); //validate both fields
+  const { success, user, token, message } = await verifyOTP(mobileNumber, otp); //validate both fields
 
   if (success) {
     return res.json({
-      message: "OTP verified successfully",
+      message: message ?? "OTP verified successfully",
       user,
       token,
     });
   }
 
   return res.json({
-    message: "OTP verification failed",
+    message: message ?? "OTP verification failed",
   });
 });
 
